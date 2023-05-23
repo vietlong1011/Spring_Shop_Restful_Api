@@ -20,17 +20,17 @@ import java.util.List;
 @Entity
 @EntityListeners(AuditingEntityListener.class)
 // annotation cho phep cap nhat cac gia tri tai thoi diem duoc thay doi hoac update
-@JsonIgnoreProperties(value = {"oder_date"},
-        allowGetters = false)
+@JsonIgnoreProperties(value = {"oderDate"},
+        allowGetters = true)
 @Table(name = "cart", uniqueConstraints = { @UniqueConstraint(columnNames = { "idUser" })})
 // annotation thiet lap khoa ngoai cua table
 public class Cart {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idCart;
 
     // thiet lap relationship + tao 1 table clone voi khoa ngoai la idUser
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "idUser", referencedColumnName = "idUser",foreignKey = @ForeignKey(name = "cart_user_fk"))
    // @JsonBackReference // annotation nay ngan chan van de "stackoverflow"
     private User user;
@@ -47,9 +47,12 @@ public class Cart {
     private double total;
 
 
-    @Column(name = "oder_date",nullable = false, updatable = false)
+    @Column(nullable = false, updatable = false)
     @Temporal(TemporalType.TIMESTAMP)
     @CreatedDate
     private Date orderDate;
 
+    public void setOrderDate(Date orderDate) {
+        this.orderDate = orderDate;
+    }
 }

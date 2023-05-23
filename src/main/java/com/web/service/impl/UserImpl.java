@@ -6,6 +6,7 @@ import com.web.entity.User;
 import com.web.repository.UserRepository;
 import com.web.service.UserService;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
@@ -19,6 +20,8 @@ public class UserImpl implements UserService {
     private UserConvert userConvert;
     @Autowired
     private UserRepository userRepository;
+    @Autowired
+    private ModelMapper modelMapper;
 
     // lay ra user theo idUser
     @Override

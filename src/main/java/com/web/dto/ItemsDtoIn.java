@@ -3,6 +3,7 @@ package com.web.dto;
 import jakarta.persistence.Column;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
+import jakarta.persistence.Transient;
 import lombok.*;
 
 import java.util.Date;
@@ -21,5 +22,6 @@ public class ItemsDtoIn {
     private Long price;
     @NonNull
     private int quantity;
+
     private Date createDate;
 }

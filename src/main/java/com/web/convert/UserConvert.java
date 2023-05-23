@@ -23,7 +23,7 @@ public class UserConvert {
     // chuyen tu dto sang entity
     public User userToEntity(UserDtoIn userDtoIn){
         User user = new User();
-        user = modelMapper.map(userDtoIn, User.class);
+        user = modelMapper.map(userDtoIn, User.class); //todo chuong trinh dead here
         return user;
     }
 }

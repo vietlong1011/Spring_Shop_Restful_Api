@@ -38,7 +38,7 @@ public class CartImpl implements CartService {
     // lay ra toan bo danh sach Cart
     @Override
     public List<CartDtoIn> getAllCart() {
-        List<Cart> cartList =  cartRepository.findAll(Sort.by("nameCart").ascending());
+        List<Cart> cartList =  cartRepository.findAll();
         List<CartDtoIn> cartDtoInList = new ArrayList<>();
         for (Cart cart : cartList){
             CartDtoIn cartDtoIn = new CartDtoIn();
@@ -59,18 +59,19 @@ public class CartImpl implements CartService {
     @Override
     public CartDtoIn deleteCartById(Long idCart) {
         Cart cart = cartRepository.findById(idCart).orElseThrow();
-        if (cart.getIdCart() == idCart) {
-            cartRepository.deleteById(cart.getIdCart());
-        }
+//        if (cart.getIdCart() == idCart) {
+//            cartRepository.delete(cart);
+//        }
+        cartRepository.delete(cart);
         return cartConvert.CartToDto(cart);
     }
 
-    @Override
-    public CartDtoIn updateCartById(CartDtoIn cartDtoIn) {
-        Cart cart = new Cart();
-        cart.setIdCart(cartDtoIn.getCart().getIdCart());
-        cart = cartConvert.CartToEntity(cartDtoIn);
-        cart = cartRepository.save(cart);
-        return cartConvert.CartToDto(cart);
-    }
+//    @Override
+//    public CartDtoIn updateCartById(CartDtoIn cartDtoIn) {
+//        Cart cart = new Cart();
+//        cart.setIdCart(cartDtoIn.getCart().getIdCart());
+//        cart = cartConvert.CartToEntity(cartDtoIn);
+//        cart = cartRepository.save(cart);
+//        return cartConvert.CartToDto(cart);
+//    }
 }

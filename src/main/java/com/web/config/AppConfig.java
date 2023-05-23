@@ -10,8 +10,9 @@ public class AppConfig {
     @Bean(name = "moderMapper")
     public ModelMapper modelMapper() {
         ModelMapper modelMapper = new ModelMapper();
-        modelMapper.getConfiguration()
-                .setMatchingStrategy(MatchingStrategies.LOOSE); // mapper giua 2 value gan dung(MatchingStrategies.LOOSE)
+//        modelMapper.getConfiguration()
+//                .setMatchingStrategy(MatchingStrategies.LOOSE);//mapper giua 2 value gan dung(MatchingStrategies.LOOSE)
+        modelMapper.getConfiguration().setAmbiguityIgnored(true);
         return modelMapper;
     }
 }

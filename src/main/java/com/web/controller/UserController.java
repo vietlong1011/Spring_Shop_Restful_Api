@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -30,7 +31,7 @@ public class UserController {
     }
 
     @PostMapping("/user")
-    public UserDtoIn saveUser(@RequestBody UserDtoIn userDtoIn){
+    public UserDtoIn saveUser(@Valid @RequestBody UserDtoIn userDtoIn){
         userService.saveUser(userDtoIn);
         return userDtoIn;
     }
