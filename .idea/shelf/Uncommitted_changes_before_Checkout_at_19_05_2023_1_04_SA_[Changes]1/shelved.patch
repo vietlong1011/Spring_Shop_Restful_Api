@@ -1,0 +1,220 @@
+Index: src/main/java/com/web/dto/CartDtoIn.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/web/dto/CartDtoIn.java b/src/main/java/com/web/dto/CartDtoIn.java
+new file mode 100644
+--- /dev/null	
++++ b/src/main/java/com/web/dto/CartDtoIn.java	
+@@ -0,0 +1,4 @@
++package com.web.dto;
++
++public class CartDtoIn {
++}
+Index: target/classes/application.yml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/target/classes/application.yml b/target/classes/application.yml
+new file mode 100644
+--- /dev/null	
++++ b/target/classes/application.yml	
+@@ -0,0 +1,14 @@
++hibernate:
++  dialect: org.hibernate.dialect.MySQL5InnoDBDialect
++
++server:
++  port: 8888
++spring:
++  datasource:
++    url: jdbc:mysql://localhost:3306/web_ban_hang
++    username: root
++    password: 10112002
++  jpa:
++    hibernate:
++      ddl-auto: update
++    show-sql: true
+Index: src/main/java/com/web/entity/Cart.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/web/entity/Cart.java b/src/main/java/com/web/entity/Cart.java
+new file mode 100644
+--- /dev/null	
++++ b/src/main/java/com/web/entity/Cart.java	
+@@ -0,0 +1,55 @@
++package com.web.entity;
++
++import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
++import jakarta.persistence.*;
++import lombok.AllArgsConstructor;
++import lombok.Data;
++import lombok.NoArgsConstructor;
++import org.springframework.data.annotation.CreatedDate;
++import org.springframework.data.jpa.domain.support.AuditingEntityListener;
++
++import java.util.Date;
++import java.util.List;
++
++@Data
++@NoArgsConstructor
++@AllArgsConstructor
++@Entity
++@EntityListeners(AuditingEntityListener.class)
++// annotation cho phep cap nhat cac gia tri tai thoi diem duoc thay doi hoac update
++@JsonIgnoreProperties(value = {"createdAt"},
++        allowGetters = true)
++public class Cart {
++    @Id
++    @GeneratedValue(strategy = GenerationType.IDENTITY)
++    private Long idCart;
++
++    private Long idUser;
++
++    /**fetch = FetchType.LAZY
++     * khi đối tượng của lớp con được truy vấn từ csdl,
++     * đối tượng của lớp cha sẽ không được lấy ngay lập tức.
++     * Thay vào đó, đối tượng của lớp cha sẽ được tải vào bộ nhớ khi nó được truy cập lần đầu tiên thông qua trường đó**/
++    @ManyToOne(fetch = FetchType.LAZY)
++    @JoinColumn(name = "idItems", nullable = false, //
++            foreignKey = @ForeignKey(name = "idItems"))
++    private Items items;
++
++
++    @Column(name = "quantity", nullable = false)
++    private int quantity;
++
++    @Column(name = "price", nullable = false)
++    private double price;
++
++
++    @Column(name ="oder_date",nullable = false)
++    @Temporal(TemporalType.TIMESTAMP)
++    @CreatedDate
++    private Date orderDate;
++
++    @OneToMany(targetEntity = Items.class, cascade = CascadeType.ALL)
++    @JoinColumn(name = "idItems", referencedColumnName = "idItems")
++    private List<Items> itemsList;
++
++}
+Index: src/main/java/com/web/entity/User.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/web/entity/User.java b/src/main/java/com/web/entity/User.java
+new file mode 100644
+--- /dev/null	
++++ b/src/main/java/com/web/entity/User.java	
+@@ -0,0 +1,34 @@
++package com.web.entity;
++
++import jakarta.persistence.*;
++import lombok.AllArgsConstructor;
++import lombok.Data;
++import lombok.NoArgsConstructor;
++
++@Data
++@NoArgsConstructor
++@AllArgsConstructor
++@Entity
++public class User {
++    @Id
++    @GeneratedValue(strategy = GenerationType.IDENTITY)
++    private Long idUser;
++
++    @Column(name="nameUser", nullable = false)
++    private String nameUser;
++
++    @Column(name="country")
++    private String country;
++
++    @Column(name="phone", nullable = false)
++    private Long phone;
++
++    @Column(name="email")
++    private String email;
++
++    @Column(name="money", nullable = false)
++    private double money;
++
++//    @OneToOne(mappedBy = "user")
++//    private Cart cart;
++}
+Index: src/test/java/com/web/RestApiWebBanHangSpringBootApplicationTests.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/com/web/RestApiWebBanHangSpringBootApplicationTests.java b/src/test/java/com/web/RestApiWebBanHangSpringBootApplicationTests.java
+new file mode 100644
+--- /dev/null	
++++ b/src/test/java/com/web/RestApiWebBanHangSpringBootApplicationTests.java	
+@@ -0,0 +1,13 @@
++package com.web;
++
++import org.junit.jupiter.api.Test;
++import org.springframework.boot.test.context.SpringBootTest;
++
++@SpringBootTest
++class RestApiWebBanHangSpringBootApplicationTests {
++
++    @Test
++    void contextLoads() {
++    }
++
++}
+Index: src/main/java/com/web/entity/Items.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/web/entity/Items.java b/src/main/java/com/web/entity/Items.java
+new file mode 100644
+--- /dev/null	
++++ b/src/main/java/com/web/entity/Items.java	
+@@ -0,0 +1,36 @@
++package com.web.entity;
++
++import jakarta.persistence.*;
++import lombok.AllArgsConstructor;
++import lombok.Data;
++import lombok.NoArgsConstructor;
++
++import java.util.Date;
++
++@Data
++@NoArgsConstructor
++@AllArgsConstructor
++@Entity
++public class Items {
++    private static final long serialVersionUID = -1000119078147252957L;
++
++    @Id
++    @GeneratedValue(strategy = GenerationType.IDENTITY)
++    private Long idItems;
++
++    @Column(name = "nameItems", nullable = false)
++    private String nameItems;
++
++    @Column(name = "made", nullable = false)
++    private String made;
++
++    @Column(name = "price", nullable = false)
++    private Long price;
++
++    @Column(name = "quantity", nullable = false)
++    private int quantity;
++
++    @Temporal(TemporalType.TIMESTAMP)
++    @Column(name = "Create_Date", nullable = false)
++    private Date createDate;
++}
+diff --git a/.idea/sonarlint/issuestore/index.pb b/.idea/sonarlint/issuestore/index.pb
+new file mode 100644
+diff --git a/.idea/sonarlint/securityhotspotstore/index.pb b/.idea/sonarlint/securityhotspotstore/index.pb
+new file mode 100644

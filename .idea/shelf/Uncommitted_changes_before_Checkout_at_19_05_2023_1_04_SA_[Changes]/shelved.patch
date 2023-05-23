@@ -1,0 +1,21 @@
+Index: src/main/java/com/example/rest_api_web_ban_hang_spring_boot/RestApiWebBanHangSpringBootApplication.java
+===================================================================
+diff --git a/src/main/java/com/example/rest_api_web_ban_hang_spring_boot/RestApiWebBanHangSpringBootApplication.java b/src/main/java/com/web/RestApiWebBanHangSpringBootApplication.java
+rename from src/main/java/com/example/rest_api_web_ban_hang_spring_boot/RestApiWebBanHangSpringBootApplication.java
+rename to src/main/java/com/web/RestApiWebBanHangSpringBootApplication.java
+--- a/src/main/java/com/example/rest_api_web_ban_hang_spring_boot/RestApiWebBanHangSpringBootApplication.java	
++++ b/src/main/java/com/web/RestApiWebBanHangSpringBootApplication.java	
+@@ -1,4 +1,4 @@
+-package com.example.rest_api_web_ban_hang_spring_boot;
++package com.web;
+ 
+ import org.springframework.boot.SpringApplication;
+ import org.springframework.boot.autoconfigure.SpringBootApplication;
+@@ -8,6 +8,7 @@
+ 
+     public static void main(String[] args) {
+         SpringApplication.run(RestApiWebBanHangSpringBootApplication.class, args);
++        System.out.println("hello");
+     }
+ 
+ }

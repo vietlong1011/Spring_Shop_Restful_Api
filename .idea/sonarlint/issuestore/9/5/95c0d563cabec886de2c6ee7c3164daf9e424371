@@ -1,0 +1,11 @@
+
+r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ºİ÷‰şÿÿÿÿ8Åßöšƒ1
+r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Àø‚ûÿÿÿÿ8Æßöšƒ1
+m	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(à»™‚8Çßöšƒ1
+r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¼±’ƒûÿÿÿÿ8Çßöšƒ1
+o	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ºİ÷‰şÿÿÿÿ8Ïßöšƒ1
+_
+java:S1854"=Remove this useless assignment to local variable "CartDtoIn".(Àø‚ûÿÿÿÿ8Ğßöšƒ1
+j	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(à»™‚8Óßöšƒ1
+Z
+java:S1854"8Remove this useless assignment to local variable "Cart".(¼±’ƒûÿÿÿÿ8Ôßöšƒ1
