@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>rest_api_web_ban_hang_spring_boot</artifactId>
+    <artifactId>rest_api_web_shop</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>rest_api_web_ban_hang_spring_boot</name>
     <description>rest_api_web_ban_hang_spring_boot</description>
@@ -46,12 +46,12 @@
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
             <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.mysql</groupId>
-            <artifactId>mysql-connector-j</artifactId>
-            <scope>runtime</scope>
-        </dependency>
+        </dependency><dependency>
+        <groupId>com.mysql</groupId>
+        <artifactId>mysql-connector-j</artifactId>
+        <scope>runtime</scope>
+    </dependency>
+
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -68,6 +68,7 @@
             <artifactId>modelmapper</artifactId>
             <version>3.0.0</version>
         </dependency>
+
     </dependencies>
 
     <build>

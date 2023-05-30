@@ -1,7 +1,7 @@
 package com.web.service.impl;
 
 import com.web.convert.UserConvert;
-import com.web.dto.UserDtoIn;
+import com.web.dto.DtoIn.UserDtoIn;
 import com.web.entity.User;
 import com.web.repository.UserRepository;
 import com.web.service.UserService;
@@ -59,6 +59,17 @@ public class UserImpl implements UserService {
              userRepository.deleteById(user.getIdUser());
          }
         return userConvert.userToDto(user);
+    }
+
+    @Override
+    public List<Object[]> getUserDetailById(Long idUser) {
+        User user = userRepository.findById(idUser).get();
+        List<Object[]> list = new ArrayList<>();
+        for (int i = 0 ; i < user.getOrder().size(); i++ ){
+            list.addAll(userRepository.findUserDetail(user.getOrder().get(i).getIdOrder(), idUser));
+        }
+        // lay gia tri cua idOrder cua Order trong User
+        return list;
     }
 
 //    @Override

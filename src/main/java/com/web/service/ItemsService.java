@@ -1,9 +1,6 @@
 package com.web.service;
 
-import com.web.dto.ItemsDtoIn;
-import com.web.dto.UserDtoIn;
-import com.web.entity.Cart;
-import com.web.entity.Items;
+import com.web.dto.DtoIn.ItemsDtoIn;
 
 import java.util.List;
 

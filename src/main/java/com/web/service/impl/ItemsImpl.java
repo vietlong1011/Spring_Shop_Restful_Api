@@ -1,7 +1,7 @@
 package com.web.service.impl;
 
 import com.web.convert.ItemsConvert;
-import com.web.dto.ItemsDtoIn;
+import com.web.dto.DtoIn.ItemsDtoIn;
 import com.web.entity.Items;
 import com.web.repository.ItemsRepository;
 import com.web.service.ItemsService;
@@ -23,7 +23,7 @@ public class ItemsImpl implements ItemsService {
     // lay ra Items theo idItems
     @Override
     public ItemsDtoIn getItems(Long idItems) {
-        Items Items = ItemsRepository.getById(idItems);
+        Items Items = ItemsRepository.findById(idItems).get();
         ItemsDtoIn ItemsDtoIn = ItemsConvert.ItemsToDto(Items);
         return ItemsDtoIn;
     }

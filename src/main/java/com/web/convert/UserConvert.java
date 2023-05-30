@@ -1,6 +1,7 @@
 package com.web.convert;
 
-import com.web.dto.UserDtoIn;
+import com.web.dto.DtoIn.UserDto;
+import com.web.dto.DtoIn.UserDtoIn;
 import com.web.entity.User;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,4 +27,11 @@ public class UserConvert {
         user = modelMapper.map(userDtoIn, User.class); //todo chuong trinh dead here
         return user;
     }
+
+    // nhap
+//    public UserDto userToDto(User user) {
+//        UserDto userDto = new UserDto();
+//        userDto = modelMapper.map(user, UserDto.class);// error
+//        return userDto;
+//    }
 }

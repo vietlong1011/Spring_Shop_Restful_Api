@@ -1,9 +1,11 @@
 package com.web.entity;
 
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 
 import java.util.Date;
 
@@ -16,7 +18,7 @@ public class Items {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(insertable=false, updatable=false)
+    @Column(insertable=true, updatable=true)
     private Long idItems;
 
     @Column(name = "nameItems", nullable = false)

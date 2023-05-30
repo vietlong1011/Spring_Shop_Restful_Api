@@ -1,10 +1,12 @@
 package com.web.convert;
 
-import com.web.dto.ItemsDtoIn;
+import com.web.dto.DtoIn.ItemsDtoIn;
 import com.web.entity.Items;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import java.util.Date;
 
 @Component
 public class ItemsConvert {
@@ -23,6 +25,7 @@ public class ItemsConvert {
     public Items ItemsToEntity(ItemsDtoIn ItemsDtoIn){
         Items Items = new Items();
         Items = modelMapper.map(ItemsDtoIn, Items.class);
+        Items.setCreateDate(new Date());
         return Items;
     }
 }

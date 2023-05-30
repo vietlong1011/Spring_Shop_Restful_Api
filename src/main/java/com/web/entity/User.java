@@ -2,19 +2,21 @@ package com.web.entity;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import java.io.Serializable;
+import java.util.List;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
+//@Data
+//@NoArgsConstructor
+//@AllArgsConstructor
+@Getter
+@Setter
 @Entity
-public class User {
+public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idUser;
@@ -37,8 +39,8 @@ public class User {
     @Column(name="money", nullable = false)
     private double money;
 
-    @OneToOne(mappedBy = "user",cascade = CascadeType.ALL)
-    @JsonManagedReference // annotation nay ngan chan van de "stackoverflow"
-    private Cart cart;
+    @JsonManagedReference // annotation ngan chan stack overflow
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Order> order;
 
 }
