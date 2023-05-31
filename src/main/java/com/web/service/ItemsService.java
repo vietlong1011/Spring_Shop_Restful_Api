@@ -1,6 +1,6 @@
 package com.web.service;
 
-import com.web.dto.DtoIn.ItemsDtoIn;
+import com.web.dto.ItemsDtoIn;
 
 import java.util.List;
 
@@ -9,7 +9,6 @@ public interface ItemsService {
 
     List<ItemsDtoIn> getAllItems() ;
 
-    //CRUD
     ItemsDtoIn saveItems(ItemsDtoIn itemsDtoIn);
 
     ItemsDtoIn deleteItemsById(Long idItems);

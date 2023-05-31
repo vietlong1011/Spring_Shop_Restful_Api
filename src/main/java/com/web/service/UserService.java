@@ -1,7 +1,6 @@
 package com.web.service;
 
-import com.web.dto.DtoIn.UserDtoIn;
-
+import com.web.dto.UserDtoIn;
 
 import java.util.List;
 
@@ -10,18 +9,10 @@ public interface UserService {
 
     List<UserDtoIn> getAllUser();
 
-    //CRUD
     UserDtoIn saveUser(UserDtoIn user);
 
     UserDtoIn deleteUserById(Long idUser);
 
     List<Object[]> getUserDetailById(Long idUser);
-
-    //UserDtoIn updateUserById(UserDtoIn in);
-
-
-
-
-
 
 }

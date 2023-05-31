@@ -1,12 +1,6 @@
 package com.web.convert;
 
-import com.web.dto.DtoIn.OrderDetailDtoIn;
-
-import com.web.dto.DtoIn.OrderDetailRatingKeyDto;
-import com.web.dto.DtoIn.UserDtoIn;
-import com.web.entity.Items;
-import com.web.entity.Order;
-import com.web.entity.User;
+import com.web.dto.OrderDetailDtoIn;
 import com.web.entity.composite_key.OrderDetail;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,22 +12,18 @@ public class OrderDetailConvert {
     @Autowired
     private ModelMapper modelMapper;
 
-    // chuyen du lieu tu entity sang dto
     public OrderDetailDtoIn userToDto(OrderDetail orderDetail) {
-        OrderDetailDtoIn OrderDetailDtoIn = new OrderDetailDtoIn();
-        OrderDetailDtoIn = modelMapper.map(orderDetail, OrderDetailDtoIn.class);
-        OrderDetailDtoIn.setIdItems(orderDetail.getItems().getIdItems());
-        OrderDetailDtoIn.setIdOrder(orderDetail.getOrder().getIdOrder());
-        return OrderDetailDtoIn;
+        OrderDetailDtoIn orderDetailDtoIn ;
+        orderDetailDtoIn = modelMapper.map(orderDetail, OrderDetailDtoIn.class);
+        orderDetailDtoIn.setIdItems(orderDetail.getItems().getIdItems());
+        orderDetailDtoIn.setIdOrder(orderDetail.getOrder().getIdOrder());
+        return orderDetailDtoIn;
     }
 
-    // chuyen tu dto sang entity
-    public OrderDetail userToEntity(OrderDetailDtoIn OrderDetailDtoIn){
-        OrderDetail orderDetail = new OrderDetail();
-        orderDetail = modelMapper.map(OrderDetailDtoIn, OrderDetail.class); //todo chuong trinh dead here
+    public OrderDetail userToEntity(OrderDetailDtoIn orderDetailDtoIn){
+        OrderDetail orderDetail ;
+        orderDetail = modelMapper.map(orderDetailDtoIn, OrderDetail.class);
         return orderDetail;
     }
-
-    // ham convert cac gia tri cua composite key
 
 }

@@ -4,80 +4,63 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c56b6234-4ad1-4eba-bca6-1994ddb01254" name="Changes" comment="hoan thien bo khung web (tru controller cart)">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/web/controller/OrderController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/web/controller/OrderDetailController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/web/controller/PayController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/web/convert/OrderConvert.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/web/convert/OrderDetailConvert.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/web/dto/CartInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/web/dto/CartLineInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/web/dto/DtoIn/OrderDetailDtoIn.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/web/dto/DtoIn/OrderDetailRatingKeyDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/web/dto/DtoIn/UserDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/web/entity/PayView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/web/repository/OrderDetailRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/web/repository/PayRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/web/service/OrderService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/web/service/PayService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/web/service/impl/ConnectJDBC.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/web/service/impl/OrderImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/web/service/impl/PayServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_19_05_2023_1_04_SA_[Changes]1/Cart.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_19_05_2023_1_04_SA_[Changes]1/Items.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_19_05_2023_1_04_SA_[Changes]1/RestApiWebBanHangSpringBootApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_19_05_2023_1_04_SA_[Changes]1/RestApiWebBanHangSpringBootApplicationTests.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_19_05_2023_1_04_SA_[Changes]1/User.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_19_05_2023_1_04_SA_[Changes]1/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_19_05_2023_1_04_SA__Changes_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/c/3cb349066300bbcdac61fe9e88998a44e2d7d4b1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/f/5fed6f36e3ed0b8ce45669104dd3114e169f5839" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/f/5fed6f36e3ed0b8ce45669104dd3114e169f5839" afterDir="false" />
+    <list default="true" id="c56b6234-4ad1-4eba-bca6-1994ddb01254" name="Changes" comment="hoan thien xong cac chuc nang yeu cau (v1)">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/web/service/OrderDetailService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/web/service/impl/OrderDetailImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/f/5fed6f36e3ed0b8ce45669104dd3114e169f5839" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/3/c/3cb349066300bbcdac61fe9e88998a44e2d7d4b1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/5/f/5fed6f36e3ed0b8ce45669104dd3114e169f5839" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/web/controller/CartController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/web/RestApiWebBanHangSpringBootApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/web/RestApiWebBanHangSpringBootApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/web/config/AppConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/web/config/AppConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/web/controller/ItemsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/web/controller/ItemsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/web/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/web/controller/OrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/web/controller/OrderDetailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/web/controller/OrderDetailController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/web/controller/PayController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/web/controller/PayController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/web/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/web/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/web/convert/CartConvert.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/web/convert/ItemsConvert.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/web/convert/ItemsConvert.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/web/convert/OrderConvert.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/web/convert/OrderConvert.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/web/convert/OrderDetailConvert.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/web/convert/OrderDetailConvert.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/web/convert/UserConvert.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/web/convert/UserConvert.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/web/dto/CartDtoIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/web/dto/DtoIn/OrderDtoIn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/web/dto/ItemsDtoIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/web/dto/DtoIn/ItemsDtoIn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/web/dto/UserDtoIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/web/dto/DtoIn/UserDtoIn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/web/entity/Cart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/web/entity/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/web/dto/CartInfo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/web/dto/CartLineInfo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/web/dto/DtoIn/ItemsDtoIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/web/dto/ItemsDtoIn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/web/dto/DtoIn/OrderDetailDtoIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/web/dto/OrderDetailDtoIn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/web/dto/DtoIn/OrderDetailRatingKeyDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/web/dto/OrderDetailRatingKeyDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/web/dto/DtoIn/OrderDtoIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/web/dto/OrderDtoIn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/web/dto/DtoIn/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/web/dto/UserDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/web/dto/DtoIn/UserDtoIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/web/dto/UserDtoIn.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/web/entity/Items.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/web/entity/Items.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/web/entity/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/web/entity/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/web/entity/PayView.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/web/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/web/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/web/entity/composite_key/CartDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/web/entity/composite_key/OrderDetail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/web/entity/composite_key/CartDetailRatingKey.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/web/entity/composite_key/OrderDetailRatingKey.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/web/repository/CartRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/web/repository/OrderRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/web/entity/composite_key/OrderDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/web/entity/composite_key/OrderDetail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/web/entity/composite_key/OrderDetailRatingKey.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/web/entity/composite_key/OrderDetailRatingKey.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/web/repository/OrderDetailRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/web/repository/OrderDetailRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/web/repository/OrderRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/web/repository/OrderRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/web/repository/PayRepository.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/web/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/web/repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/web/service/CartService.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/web/service/ItemsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/web/service/ItemsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/web/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/web/service/OrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/web/service/PayService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/web/service/PayService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/web/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/web/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/web/service/impl/CartImpl.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/web/service/impl/ItemsImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/web/service/impl/ItemsImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/web/service/impl/OrderImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/web/service/impl/OrderImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/web/service/impl/PayServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/web/service/impl/PayServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/web/service/impl/UserImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/web/service/impl/UserImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/web/RestApiWebBanHangSpringBootApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/web/RestApiWebBanHangSpringBootApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/web/config/AppConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/web/config/AppConfig.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/web/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/web/controller/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/web/convert/CartConvert.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/web/convert/ItemsConvert.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/web/convert/ItemsConvert.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/web/convert/UserConvert.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/web/convert/UserConvert.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/web/dto/CartDtoIn.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/web/dto/ItemsDtoIn.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/web/dto/UserDtoIn.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/web/entity/Cart.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/web/entity/Items.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/web/entity/Items.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/web/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/web/entity/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/web/entity/composite_key/CartDetail.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/web/entity/composite_key/CartDetailRatingKey.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/web/repository/CartRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/web/repository/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/web/repository/UserRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/web/service/CartService.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/web/service/ItemsService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/web/service/ItemsService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/web/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/web/service/UserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/web/service/impl/CartImpl.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/web/service/impl/ItemsImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/web/service/impl/ItemsImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/web/service/impl/UserImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/web/service/impl/UserImpl.class" afterDir="false" />
     </list>
@@ -143,15 +126,17 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "JPA.DatabaseSchemaImportDialog": "d2784a0b-7757-418e-9ea8-feafa468e7d1",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "SONARLINT_PRECOMMIT_ANALYSIS": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/vscjava/o7planning",
+    "last_opened_file_path": "D:/vscjava/relationship/Restful_API",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
@@ -159,8 +144,18 @@
     "settings.editor.selected.configurable": "configurable.group.appearance",
     "spring.configuration.checksum": "88677fd8f5ef789a40fd8de02ebe68be",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="ImportMappingsDialog.RecentPackages">
+      <recent name="" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="RestApiWebBanHangSpringBootApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="rest_api_web_shop" />
@@ -216,7 +211,7 @@
       <workItem from="1684768891813" duration="68266000" />
       <workItem from="1685028909887" duration="29893000" />
       <workItem from="1685299129485" duration="13445000" />
-      <workItem from="1685378534655" duration="9178000" />
+      <workItem from="1685378534655" duration="50311000" />
     </task>
     <task id="LOCAL-00004" summary="hoan thien bo khung web (tru controller cart)">
       <created>1684866976230</created>
@@ -225,7 +220,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684866976230</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="hoan thien xong cac chuc nang yeu cau (v1)">
+      <created>1685418194405</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1685418194405</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -247,31 +249,16 @@
     <MESSAGE value="hmm" />
     <MESSAGE value="hoan thien bo khung web (tru controller)" />
     <MESSAGE value="hoan thien bo khung web (tru controller cart)" />
-    <option name="LAST_COMMIT_MESSAGE" value="hoan thien bo khung web (tru controller cart)" />
+    <MESSAGE value="hoan thien xong cac chuc nang yeu cau (v1)" />
+    <option name="LAST_COMMIT_MESSAGE" value="hoan thien xong cac chuc nang yeu cau (v1)" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/web/service/impl/PayServiceImpl.java</url>
-          <line>25</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/web/service/impl/PayServiceImpl.java</url>
-          <line>27</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/web/service/impl/PayServiceImpl.java</url>
-          <line>43</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
+        <PinnedItemInfo parentTag="com.web.entity.User" memberName="order" />
+        <PinnedItemInfo parentTag="com.web.entity.User" memberName="country" />
         <PinnedItemInfo parentTag="java.lang.Long" memberName="value" />
+        <PinnedItemInfo parentTag="com.web.entity.composite_key.OrderDetail" memberName="id" />
       </pinned-members>
     </pin-to-top-manager>
     <watches-manager>

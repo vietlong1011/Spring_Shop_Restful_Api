@@ -6,7 +6,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
 import java.util.Date;
 
 @Data
@@ -14,11 +13,12 @@ import java.util.Date;
 @AllArgsConstructor
 @Entity
 public class Items {
+
     private static final long serialVersionUID = -1000119078147252957L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(insertable=true, updatable=true)
+    @Column(name = "id_items")
     private Long idItems;
 
     @Column(name = "nameItems", nullable = false)
@@ -31,9 +31,10 @@ public class Items {
     private Long price;
 
     @Column(name = "quantity", nullable = false)
-    private int quantity;
+    private Integer quantity;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "Create_Date", nullable = false)
     private Date createDate;
+
 }

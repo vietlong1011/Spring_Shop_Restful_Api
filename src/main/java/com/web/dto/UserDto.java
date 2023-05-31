@@ -1,4 +1,4 @@
-package com.web.dto.DtoIn;
+package com.web.dto;
 
 import com.web.entity.User;
 import lombok.AllArgsConstructor;
@@ -11,5 +11,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 public class UserDto {
+
     private User user;
+
 }

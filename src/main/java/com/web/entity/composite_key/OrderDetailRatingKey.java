@@ -12,8 +12,11 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 public class OrderDetailRatingKey implements Serializable {
+
     @Column(name = "idItems")
     Long idItems;
+
     @Column(name = "idOrder")
     Long idOrder;
+
 }

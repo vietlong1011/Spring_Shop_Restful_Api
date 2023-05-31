@@ -1,6 +1,6 @@
 package com.web.convert;
 
-import com.web.dto.DtoIn.OrderDtoIn;
+import com.web.dto.OrderDtoIn;
 import com.web.entity.Order;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,22 +10,22 @@ import java.util.Date;
 
 @Component
 public class OrderConvert {
+
     @Autowired
     private ModelMapper modelMapper;
 
-    // chuyen du lieu tu entity sang dto
-    public OrderDtoIn OrderToDto(Order Order) {
-        OrderDtoIn OrderDtoIn = new OrderDtoIn();
-        OrderDtoIn = modelMapper.map(Order, OrderDtoIn.class);
-        OrderDtoIn.setOderDate(Order.getOrderDate());
-        return OrderDtoIn;
+    public OrderDtoIn orderToDto(Order order) {
+        OrderDtoIn orderDtoIn;
+        orderDtoIn = modelMapper.map(order, OrderDtoIn.class);
+        orderDtoIn.setOderDate(order.getOrderDate());
+        return orderDtoIn;
     }
 
-    // chuyen tu dto sang entity
-    public Order OrderToEntity(OrderDtoIn OrderDtoIn) {
-        Order Order = new Order();
-        Order = modelMapper.map(OrderDtoIn, Order.class);
-        Order.setOrderDate(new Date());
-        return Order;
+    public Order orderToEntity(OrderDtoIn orderDtoIn) {
+        Order order;
+        order = modelMapper.map(orderDtoIn, Order.class);
+        order.setOrderDate(new Date());
+        return order;
     }
+
 }

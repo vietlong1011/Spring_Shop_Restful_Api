@@ -1,7 +1,7 @@
 package com.web.service.impl;
 
 import com.web.convert.OrderConvert;
-import com.web.dto.DtoIn.OrderDtoIn;
+import com.web.dto.OrderDtoIn;
 import com.web.entity.Order;
 import com.web.repository.OrderRepository;
 import com.web.service.OrderService;
@@ -10,69 +10,56 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class OrderImpl implements OrderService {
 
+    @Autowired
+    private OrderConvert orderConvert;
 
     @Autowired
-    private OrderConvert OrderConvert;
-    @Autowired
-    private OrderRepository OrderRepository;
+    private OrderRepository orderRepository;
 
-
-    // lay ra user theo idUser
     @Override
     public OrderDtoIn getOrder(Long idOrder) {
-        Order Order = OrderRepository.findById(idOrder).get();
-        OrderDtoIn OrderDtoIn = OrderConvert.OrderToDto(Order);
-
-
-        return OrderDtoIn;
+        Optional<Order> optionalOrder = orderRepository.findById(idOrder);
+        Order order = optionalOrder.orElse(null);
+        return orderConvert.orderToDto(order);
     }
 
-    // lay ra toan bo danh sach Order
     @Override
     public List<OrderDtoIn> getAllOrder() {
-        List<Order> OrderList =  OrderRepository.findAll();
-        List<OrderDtoIn> OrderDtoInList = new ArrayList<>();
-        for (Order Order : OrderList){
-            OrderDtoIn OrderDtoIn = new OrderDtoIn();
-            OrderDtoIn =   OrderConvert.OrderToDto(Order);
-            OrderDtoInList.add(OrderDtoIn);
+        List<Order> orderList = orderRepository.findAll();
+        List<OrderDtoIn> orderDtoInList = new ArrayList<>();
+        for (Order order : orderList) {
+            OrderDtoIn orderDtoIn;
+            orderDtoIn = orderConvert.orderToDto(order);
+            orderDtoInList.add(orderDtoIn);
         }
-        return OrderDtoInList;
+        return orderDtoInList;
     }
 
     @Override
-    public OrderDtoIn saveOrder(OrderDtoIn OrderDtoIn) {
-        Order Order = new Order();
-        Order = OrderConvert.OrderToEntity(OrderDtoIn);
-        Order = OrderRepository.save(Order);
-        return OrderConvert.OrderToDto(Order);
+    public OrderDtoIn saveOrder(OrderDtoIn orderDtoIn) {
+        Order order;
+        order = orderConvert.orderToEntity(orderDtoIn);
+        order = orderRepository.save(order);
+        return orderConvert.orderToDto(order);
     }
 
     @Override
     public OrderDtoIn deleteOrderById(Long idOrder) {
-        Order Order = OrderRepository.findById(idOrder).orElseThrow();
-      if (Order.getIdOrder() == idOrder) {
-          System.out.println("idOrder : " + Order.getIdOrder());
-            OrderRepository.delete(Order);
+        Order order = orderRepository.findById(idOrder).orElseThrow();
+        if (order.getIdOrder().equals(idOrder)) {
+            orderRepository.delete(order);
         }
-        return OrderConvert.OrderToDto(Order);
+        return orderConvert.orderToDto(order);
     }
 
     @Override
     public List<Object[]> findOrderDetailByOrderId(Long idOrder) {
-        return OrderRepository.findOrderDetailByOrderId(idOrder);
+        return orderRepository.findOrderDetailByOrderId(idOrder);
     }
 
-//    @Override
-//    public OrderDtoIn updateOrderById(OrderDtoIn OrderDtoIn) {
-//        Order Order = new Order();
-//        Order.setIdOrder(OrderDtoIn.getOrder().getIdOrder());
-//        Order = OrderConvert.OrderToEntity(OrderDtoIn);
-//        Order = OrderRepository.save(Order);
-//        return OrderConvert.OrderToDto(Order);
-//    }
 }

@@ -1,70 +1,68 @@
 package com.web.service.impl;
 
 import com.web.convert.ItemsConvert;
-import com.web.dto.DtoIn.ItemsDtoIn;
+import com.web.dto.ItemsDtoIn;
 import com.web.entity.Items;
 import com.web.repository.ItemsRepository;
 import com.web.service.ItemsService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ItemsImpl implements ItemsService {
 
     @Autowired
-    private ItemsConvert ItemsConvert;
-    @Autowired
-    private ItemsRepository ItemsRepository;
+    private ItemsConvert itemsConvert;
 
-    // lay ra Items theo idItems
+    @Autowired
+    private ItemsRepository itemsRepository;
+
     @Override
     public ItemsDtoIn getItems(Long idItems) {
-        Items Items = ItemsRepository.findById(idItems).get();
-        ItemsDtoIn ItemsDtoIn = ItemsConvert.ItemsToDto(Items);
-        return ItemsDtoIn;
+        Optional<Items> optionalItems = itemsRepository.findById(idItems);
+        Items items = optionalItems.orElse(null);
+        return itemsConvert.itemsToDto(items);
     }
 
-    // lay ra toan bo danh sach Items
     @Override
     public List<ItemsDtoIn> getAllItems() {
-        List<Items> ItemsList =  ItemsRepository.findAll(Sort.by("nameItems").ascending());
-        List<ItemsDtoIn> ItemsDtoInList = new ArrayList<>();
-        for (Items Items : ItemsList){
-            ItemsDtoIn ItemsDtoIn = new ItemsDtoIn();
-            ItemsDtoIn =   ItemsConvert.ItemsToDto(Items);
-            ItemsDtoInList.add(ItemsDtoIn);
+        List<Items> itemsList = itemsRepository.findAll();
+        List<ItemsDtoIn> itemsDtoInList = new ArrayList<>();
+        for (Items items : itemsList) {
+            ItemsDtoIn itemsDtoIn = itemsConvert.itemsToDto(items);
+            itemsDtoInList.add(itemsDtoIn);
         }
-        return ItemsDtoInList;
+        return itemsDtoInList;
     }
 
     @Override
-    public ItemsDtoIn saveItems(ItemsDtoIn ItemsDtoIn) {
-        Items Items = new Items();
-        Items = ItemsConvert.ItemsToEntity(ItemsDtoIn);
-        Items = ItemsRepository.save(Items);
-        return ItemsConvert.ItemsToDto(Items);
+    public ItemsDtoIn saveItems(ItemsDtoIn itemsDtoIn) {
+        Items items = itemsConvert.itemsToEntity(itemsDtoIn);
+        items = itemsRepository.save(items);
+        return itemsConvert.itemsToDto(items);
     }
 
     @Override
     public ItemsDtoIn deleteItemsById(Long idItems) {
-        Items Items = ItemsRepository.findById(idItems).orElseThrow();
-        if (Items.getIdItems() == idItems) {
-            ItemsRepository.deleteById(Items.getIdItems());
+        Items items = itemsRepository.findById(idItems).orElseThrow();
+        if (items.getIdItems().equals(idItems)) {
+            itemsRepository.deleteById(items.getIdItems());
         }
-        return ItemsConvert.ItemsToDto(Items);
+        return itemsConvert.itemsToDto(items);
     }
 
     @Override
-    public ItemsDtoIn updateItemsById(ItemsDtoIn ItemsDtoIn) {
-        Items Items = new Items();
-        Items.setIdItems(ItemsDtoIn.getIdItems());
-        Items = ItemsConvert.ItemsToEntity(ItemsDtoIn);
-        Items = ItemsRepository.save(Items);
-        return ItemsConvert.ItemsToDto(Items);
+    public ItemsDtoIn updateItemsById(ItemsDtoIn itemsDtoIn) {
+        Items items = new Items();
+        items.setIdItems(itemsDtoIn.getIdItems());
+        items = itemsConvert.itemsToEntity(itemsDtoIn);
+        items = itemsRepository.save(items);
+        return itemsConvert.itemsToDto(items);
     }
+
 }
 

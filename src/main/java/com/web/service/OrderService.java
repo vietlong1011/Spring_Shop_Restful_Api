@@ -1,6 +1,6 @@
 package com.web.service;
 
-import com.web.dto.DtoIn.OrderDtoIn;
+import com.web.dto.OrderDtoIn;
 
 
 import java.util.List;
@@ -9,8 +9,7 @@ public interface OrderService {
 
     List<OrderDtoIn> getAllOrder() ;
 
-    //CRUD
-    OrderDtoIn saveOrder(OrderDtoIn OrderDtoIn);
+    OrderDtoIn saveOrder(OrderDtoIn orderDtoIn);
 
     OrderDtoIn deleteOrderById(Long idOrder);
 

@@ -1,8 +1,6 @@
-package com.web.dto.DtoIn;
+package com.web.dto;
 
-import com.web.entity.User;
 import lombok.*;
-
 import javax.validation.constraints.Email;
 
 @Data
@@ -11,12 +9,17 @@ import javax.validation.constraints.Email;
 @ToString
 public class UserDtoIn {
 
-   // private User user;
     private Long idUser;
+
     private String country;
+
     @Email
     private String email;
+
     private Long money;
+
     private String nameUser;
+
     private Long phone;
+
 }
