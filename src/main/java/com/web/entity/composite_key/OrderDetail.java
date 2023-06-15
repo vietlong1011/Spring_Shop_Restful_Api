@@ -8,14 +8,21 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serial;
+import java.io.Serializable;
+
 @Entity
 @Table(name = "order_detail")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class OrderDetail {
+public class OrderDetail implements Serializable {
+
+        @Serial
+        private static final long serialVersionUID = 1905122041950251207L;
 
     @EmbeddedId
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private OrderDetailRatingKey id;
 
     @ManyToOne
@@ -35,5 +42,7 @@ public class OrderDetail {
 
     @Column(name = "quantity")
     private Integer quantity;
+
+
 
 }

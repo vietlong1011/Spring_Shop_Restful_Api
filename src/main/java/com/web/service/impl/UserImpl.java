@@ -24,8 +24,12 @@ public class UserImpl implements UserService {
     @Override
     public UserDtoIn getUser(Long idUser) {
         Optional<User> optionalUser = userRepository.findById(idUser);
-        User user = optionalUser.orElse(null);
-        return userConvert.userToDto(user);
+        if (optionalUser.isPresent()) {
+            User user = optionalUser.get();
+            return userConvert.userToDto(user);
+        } else {
+            return null;
+        }
     }
 
     @Override
@@ -42,6 +46,15 @@ public class UserImpl implements UserService {
     @Override
     public UserDtoIn saveUser(UserDtoIn userDtoIn) {
         User user = userConvert.userToEntity(userDtoIn);
+        user = userRepository.save(user);
+        return userConvert.userToDto(user);
+    }
+
+    @Override
+    public UserDtoIn updateUser(UserDtoIn userDtoIn) {
+        User user = new User();
+        user.setIdUser(userDtoIn.getIdUser());
+        user = userConvert.userToEntity(userDtoIn);
         user = userRepository.save(user);
         return userConvert.userToDto(user);
     }

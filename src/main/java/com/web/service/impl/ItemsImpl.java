@@ -6,6 +6,10 @@ import com.web.entity.Items;
 import com.web.repository.ItemsRepository;
 import com.web.service.ItemsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.envers.repository.support.EnversRevisionRepositoryFactoryBean;
+import org.springframework.data.history.Revision;
+import org.springframework.data.history.Revisions;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -24,8 +28,11 @@ public class ItemsImpl implements ItemsService {
     @Override
     public ItemsDtoIn getItems(Long idItems) {
         Optional<Items> optionalItems = itemsRepository.findById(idItems);
-        Items items = optionalItems.orElse(null);
-        return itemsConvert.itemsToDto(items);
+        if (optionalItems.isPresent()) {
+            Items items = optionalItems.get();
+            return itemsConvert.itemsToDto(items);
+        }
+        return  null;
     }
 
     @Override
@@ -61,6 +68,19 @@ public class ItemsImpl implements ItemsService {
         items.setIdItems(itemsDtoIn.getIdItems());
         items = itemsConvert.itemsToEntity(itemsDtoIn);
         items = itemsRepository.save(items);
+        // Truy xuất lịch sử phiên bản của sản phẩm
+        Revisions<Integer, Items> revisions = itemsRepository.findRevisions(items.getIdItems());
+        List<Revision<Integer, Items>> revisionList = revisions.getContent();
+
+        for (Revision<Integer, Items> revision : revisionList) {
+            Optional<Integer> revisionNumber = revision.getRevisionNumber();
+            Items revisionEntity = revision.getEntity();
+            // Xử lý phiên bản dữ liệu
+            System.out.println("Revision Number: " + revisionNumber);
+            System.out.println("Product Name: " + revisionEntity.getNameItems());
+            System.out.println("Product Price: " + revisionEntity.getPrice());
+            System.out.println("------------------------");
+        }
         return itemsConvert.itemsToDto(items);
     }
 

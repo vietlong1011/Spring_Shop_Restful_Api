@@ -3,6 +3,7 @@ package com.web.controller;
 import com.web.dto.OrderDtoIn;
 import com.web.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -20,11 +21,11 @@ public class OrderController {
     }
 
     @GetMapping("/orders/{id}")
-    private ResponseEntity getOrderById(@PathVariable("id") Long idOrder) {
-        OrderDtoIn OrderDtoIn = orderService.getOrder(idOrder);
-        if (OrderDtoIn.getIdOrder() == null)
-            return (ResponseEntity<String>) ResponseEntity.notFound();
-        return ResponseEntity.ok(OrderDtoIn);
+    public ResponseEntity<?> getOrderById(@PathVariable("id") Long idOrder) {
+        OrderDtoIn dto = orderService.getOrder(idOrder);
+        if (dto.getIdOrder() == null)
+            return  ResponseEntity.status(HttpStatus.NOT_FOUND).body("No value present");
+        return ResponseEntity.ok(dto);
     }
 
     @PostMapping("/orders")

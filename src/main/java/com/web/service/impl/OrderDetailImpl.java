@@ -10,7 +10,11 @@ import com.web.entity.composite_key.OrderDetailRatingKey;
 import com.web.repository.ItemsRepository;
 import com.web.repository.OrderDetailRepository;
 import com.web.repository.OrderRepository;
+import com.web.service.ItemsService;
 import com.web.service.OrderDetailService;
+import jakarta.persistence.EntityManager;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +24,9 @@ import java.util.Optional;
 
 @Service
 public class OrderDetailImpl implements OrderDetailService {
+
+    @Autowired
+    private EntityManager entityManager;
 
     @Autowired
     private OrderDetailRepository orderDetailRepository;
@@ -33,6 +40,9 @@ public class OrderDetailImpl implements OrderDetailService {
     @Autowired
     private OrderRepository orderRepository;
 
+    @Autowired
+    private ItemsService itemsService;
+
     @Override
     public List<OrderDetailDtoIn> getOderDetail() {
         List<OrderDetail> list = orderDetailRepository.findAll();
@@ -44,9 +54,9 @@ public class OrderDetailImpl implements OrderDetailService {
         return orderDetailDtoIns;
     }
 
-    // chuc nang dat hang , ngdung nhap API chua id Items de dat hang
+    // chuc nang dat hang , luu OrderDetail vao DB
     @Override
-    public OrderDetailDtoIn saveOrderDetail(Long idItems, Long idOrder,Integer quantity) {
+    public OrderDetailDtoIn saveOrderDetail(Long idItems, Long idOrder, Integer quantity) {
         OrderDetailDtoIn orderDetailDtoIn = new OrderDetailDtoIn();
         orderDetailDtoIn.setIdItems(idItems);
         orderDetailDtoIn.setIdOrder(idOrder);
@@ -69,10 +79,31 @@ public class OrderDetailImpl implements OrderDetailService {
         ratingKey.setIdOrder(idOrder);
         ratingKey.setIdItems(idItems);
         orderDetail.setId(ratingKey);
-        // todo cap nhat set gia tri cho prince voi quantity
+        // cap nhat set gia tri cho prince voi quantity
+        orderDetail.setPrince((itemsService.getItems(idItems).getPrice() * quantity));
         orderDetail.setQuantity(quantity);
         orderDetailRepository.save(orderDetail);
         return orderDetailDtoIn;
+    }
+
+    @Override
+    public Long getPrinceByIdOrder(Long idOrder) {
+        Session session = entityManager.unwrap(Session.class);
+        Long result = null;
+        Transaction tr = session.beginTransaction();
+        try {
+            String query = "select sum(o.prince ) from OrderDetail o where o.order.id = :idOrder";
+            result = (Long) session.createQuery(query)
+                    .setParameter("idOrder", idOrder)
+                    .getSingleResult();
+            tr.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            tr.rollback();
+        } finally {
+            session.close();
+        }
+        return result;
     }
 
 }

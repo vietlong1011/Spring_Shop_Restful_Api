@@ -16,7 +16,7 @@ public class UserDtoIn {
     @Email
     private String email;
 
-    private Long money;
+    private Double money;
 
     private String nameUser;
 

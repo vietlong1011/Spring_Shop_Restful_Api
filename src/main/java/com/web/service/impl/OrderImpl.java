@@ -24,8 +24,34 @@ public class OrderImpl implements OrderService {
     @Override
     public OrderDtoIn getOrder(Long idOrder) {
         Optional<Order> optionalOrder = orderRepository.findById(idOrder);
-        Order order = optionalOrder.orElse(null);
-        return orderConvert.orderToDto(order);
+        if (optionalOrder.isPresent()) {
+            Order order = optionalOrder.get();
+            return orderConvert.orderToDto(order);
+        } else {
+            return null;
+        }
+    }
+
+    @Override
+    public OrderDtoIn getOrderByIdUser(Long idUser) {
+        Optional<Order> optionalOrder = Optional.ofNullable(orderRepository.findOrderByIdUser(idUser));
+        if (optionalOrder.isPresent()) {
+            Order order = optionalOrder.get();
+            return orderConvert.orderToDto(order);
+        } else {
+            return null;
+        }
+    }
+
+    @Override
+    public OrderDtoIn findUserByIdOrder(Long idOrder) {
+        Optional<Order> optionalOrder = Optional.ofNullable(orderRepository.findUserByIdOrder(idOrder));
+        if (optionalOrder.isPresent()) {
+            Order order = optionalOrder.get();
+            return orderConvert.orderToDto(order);
+        } else {
+            return null;
+        }
     }
 
     @Override
@@ -39,6 +65,7 @@ public class OrderImpl implements OrderService {
         }
         return orderDtoInList;
     }
+
 
     @Override
     public OrderDtoIn saveOrder(OrderDtoIn orderDtoIn) {

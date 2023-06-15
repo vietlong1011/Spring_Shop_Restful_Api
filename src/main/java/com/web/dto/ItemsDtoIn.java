@@ -8,18 +8,18 @@ import java.util.Date;
 @ToString
 public class ItemsDtoIn {
 
-    @NonNull
+
     private Long idItems;
 
-    @NonNull
+
     private String nameItems;
 
     private String made;
 
-    @NonNull
+
     private Long price;
 
-    @NonNull
+
     private int quantity;
 
     private Date createDate;

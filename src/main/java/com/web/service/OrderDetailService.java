@@ -8,7 +8,8 @@ public interface OrderDetailService {
 
     List<OrderDetailDtoIn> getOderDetail();
 
-    OrderDetailDtoIn saveOrderDetail(Long idItems,Long idOrder,Integer quantity);
+    OrderDetailDtoIn saveOrderDetail(Long idItems, Long idOrder, Integer quantity);
 
+    Long getPrinceByIdOrder(Long idOrder);
 
 }

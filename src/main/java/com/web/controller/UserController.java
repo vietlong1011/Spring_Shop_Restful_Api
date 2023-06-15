@@ -7,6 +7,7 @@ import javax.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import java.util.List;
+import java.util.Map;
 import java.util.NoSuchElementException;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,14 +18,13 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-
     @GetMapping("/users")
     public List<UserDtoIn> getUser() {
         return userService.getAllUser();
     }
 
     @GetMapping("/users/{id}")
-    public ResponseEntity getUserById(@PathVariable("id") Long idUser) {
+    public ResponseEntity<?> getUserById(@PathVariable("id") Long idUser) {
         try {
             UserDtoIn userDtoIn = userService.getUser(idUser);
             return ResponseEntity.ok(userDtoIn);
@@ -39,11 +39,24 @@ public class UserController {
         return userDtoIn;
     }
 
+
+    @PutMapping("users/{id}")
+    public ResponseEntity<?> updateUserById(@PathVariable("id") Long id, @RequestBody Map<String, Double> requestBody) {
+        Double money = requestBody.get("money");
+        UserDtoIn dto= userService.getUser(id);
+        if (dto == null) {
+            return new ResponseEntity<>("No Value",HttpStatus.NOT_FOUND);
+        }
+        dto.setMoney(money);
+        userService.updateUser(dto);
+        return new ResponseEntity<>(dto,HttpStatus.OK);
+    }
+
     @DeleteMapping("/users/{id}")
-    public ResponseEntity<String> deleteUserById(@PathVariable("id") Long idUser) {
+    public ResponseEntity<?> deleteUserById(@PathVariable("id") Long idUser) {
         userService.deleteUserById(idUser);
         if (idUser == null)
-            return (ResponseEntity<String>) ResponseEntity.notFound();
+            return (ResponseEntity<?>) ResponseEntity.notFound();
         return ResponseEntity.status(HttpStatus.OK).body("delete user successfully");
     }
 
@@ -51,5 +64,6 @@ public class UserController {
     public List<Object[]> getUserDetailById(@PathVariable("id") Long idUser) {
         return userService.getUserDetailById(idUser);
     }
+
 
 }

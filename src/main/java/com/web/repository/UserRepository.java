@@ -11,8 +11,8 @@ import java.util.List;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
 
-    @Query("SELECT u  " +
-            "FROM OrderDetail od  JOIN  od.items i  JOIN  " +
+    @Query("SELECT u " +
+            "FROM OrderDetail od  JOIN  " +
             "od.order o  JOIN  o.user u " +
             "WHERE o.idOrder = :idOrder And u.idUser = :idUser")
     List<Object[]> findUserDetail(@Param("idOrder") Long idOrder, @Param("idUser") Long idUser);

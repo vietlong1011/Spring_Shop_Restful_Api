@@ -18,6 +18,6 @@ public class OrderDtoIn {
 
     private Long total;
 
-    private int quantityItems;
+    private String status;
 
 }

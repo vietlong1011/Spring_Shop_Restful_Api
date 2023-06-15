@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+import org.hibernate.envers.Audited;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.data.annotation.CreatedDate;
@@ -23,7 +24,7 @@ import org.springframework.data.annotation.CreatedDate;
 public class Order implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_order",unique = true)
     private Long idOrder;
 
     @JsonIgnore
@@ -31,8 +32,6 @@ public class Order implements Serializable {
     @JoinColumn(name = "idUser", foreignKey = @ForeignKey(name = "Order_user_fk"))
     private User user;
 
-    @Column(name = "quantityItems")
-    private Integer quantityItems;
 
     @Column(name = "total")
     private Double total;
@@ -45,5 +44,8 @@ public class Order implements Serializable {
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
     private List<OrderDetail> orderDetails;
+
+    @Column(name = "status")
+    private String status;
 
 }
