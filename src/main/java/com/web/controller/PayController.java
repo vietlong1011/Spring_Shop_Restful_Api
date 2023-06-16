@@ -44,13 +44,13 @@ public class PayController {
         } else if (orderDto.getStatus().equals("da thanh toan")) {
             return ResponseEntity.badRequest().body("Don hang nay da duoc thanh toan");
         } else if (userDtoIn.getMoney() < orderDto.getTotal()) {
-            return ResponseEntity.badRequest().body("So tien cua ban khong du de thanh toan don hang");
+            return ResponseEntity.badRequest().body("So du cua ban khong du de thanh toan don hang");
         } else {
             userDtoIn.setMoney(userDtoIn.getMoney() - orderDto.getTotal());
             orderDto.setStatus("da thanh toan");
             userService.saveUser(userDtoIn);
             orderService.saveOrder(orderDto);
-            return ResponseEntity.ok(orderDto);
+            return new ResponseEntity<>("Ban da thanh toan thanh cong don hang so "+ idOrder, HttpStatus.OK);
         }
     }
 

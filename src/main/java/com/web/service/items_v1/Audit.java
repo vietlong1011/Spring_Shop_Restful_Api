@@ -8,12 +8,11 @@ import jakarta.persistence.TypedQuery;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 import java.util.List;
 
+/** Class nay phuc vu cho viec tao ra 1 history table , chua thuc hien**/
 @Service
 public class Audit {
 
@@ -36,7 +35,7 @@ public class Audit {
         Transaction tr = session.beginTransaction();
         try {
             String query = "SELECT id_items, made, name_items, quantity, price, create_date FROM web_ban_hang.items_aud WHERE id_items = :idItems";
-            List<Object[]> rows = session.createNativeQuery(query)
+            List rows = session.createNativeQuery(query)
                     .setParameter("idItems", idItems)
                     .getResultList();
             result.addAll(rows);

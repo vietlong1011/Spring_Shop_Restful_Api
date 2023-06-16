@@ -6,10 +6,8 @@ import com.web.entity.Items;
 import com.web.repository.ItemsRepository;
 import com.web.service.ItemsService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.envers.repository.support.EnversRevisionRepositoryFactoryBean;
 import org.springframework.data.history.Revision;
 import org.springframework.data.history.Revisions;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -68,7 +66,7 @@ public class ItemsImpl implements ItemsService {
         items.setIdItems(itemsDtoIn.getIdItems());
         items = itemsConvert.itemsToEntity(itemsDtoIn);
         items = itemsRepository.save(items);
-        // Truy xuất lịch sử phiên bản của sản phẩm
+        /** Truy xuất lịch sử phiên bản của sản phẩm -> history table **/
         Revisions<Integer, Items> revisions = itemsRepository.findRevisions(items.getIdItems());
         List<Revision<Integer, Items>> revisionList = revisions.getContent();
 

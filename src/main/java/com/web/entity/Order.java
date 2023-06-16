@@ -4,12 +4,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.web.entity.composite_key.OrderDetail;
 import jakarta.persistence.*;
 import lombok.*;
-
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
-
-import org.hibernate.envers.Audited;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.data.annotation.CreatedDate;

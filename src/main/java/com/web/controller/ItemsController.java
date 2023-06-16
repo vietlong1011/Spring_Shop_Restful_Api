@@ -1,7 +1,6 @@
 package com.web.controller;
 
 import com.web.dto.ItemsDtoIn;
-import com.web.entity.Items;
 import com.web.service.ItemsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

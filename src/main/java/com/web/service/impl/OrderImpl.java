@@ -32,27 +32,6 @@ public class OrderImpl implements OrderService {
         }
     }
 
-    @Override
-    public OrderDtoIn getOrderByIdUser(Long idUser) {
-        Optional<Order> optionalOrder = Optional.ofNullable(orderRepository.findOrderByIdUser(idUser));
-        if (optionalOrder.isPresent()) {
-            Order order = optionalOrder.get();
-            return orderConvert.orderToDto(order);
-        } else {
-            return null;
-        }
-    }
-
-    @Override
-    public OrderDtoIn findUserByIdOrder(Long idOrder) {
-        Optional<Order> optionalOrder = Optional.ofNullable(orderRepository.findUserByIdOrder(idOrder));
-        if (optionalOrder.isPresent()) {
-            Order order = optionalOrder.get();
-            return orderConvert.orderToDto(order);
-        } else {
-            return null;
-        }
-    }
 
     @Override
     public List<OrderDtoIn> getAllOrder() {
