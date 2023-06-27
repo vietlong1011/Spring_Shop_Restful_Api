@@ -16,4 +16,8 @@ public interface OrderService {
 
     List<Object[]> findOrderDetailByOrderId(Long idOrder);
 
+    OrderDtoIn getOrderByIdUser(Long idUser);
+
+    Long maxIdOrder();
+
 }

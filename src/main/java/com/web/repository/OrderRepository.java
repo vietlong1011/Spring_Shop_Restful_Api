@@ -17,4 +17,9 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
     List<Object[]> findOrderDetailByOrderId(@Param("orderId") Long orderId);
 
 
+    @Query("select o from Order o where o.user.idUser = :idUser ")
+    Order findOrderByIdUser(Long idUser);
+
+    @Query("select max(o.idOrder) from Order o")
+    Long maxIdOrder();
 }

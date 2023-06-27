@@ -22,6 +22,7 @@ public class Order implements Serializable {
 
     @Id
     @Column(name = "id_order",unique = true)
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idOrder;
 
     @JsonIgnore

@@ -68,4 +68,20 @@ public class OrderImpl implements OrderService {
         return orderRepository.findOrderDetailByOrderId(idOrder);
     }
 
+    @Override
+    public OrderDtoIn getOrderByIdUser(Long idUser) {
+        Optional<Order> optionalOrder = Optional.ofNullable(orderRepository.findOrderByIdUser(idUser));
+        if (optionalOrder.isPresent()) {
+            Order order = optionalOrder.get();
+            return orderConvert.orderToDto(order);
+        } else {
+            return null;
+        }
+    }
+
+    @Override
+    public Long maxIdOrder() {
+        return orderRepository.maxIdOrder();
+    }
+
 }
