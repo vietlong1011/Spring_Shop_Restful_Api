@@ -28,15 +28,6 @@ public class OrderController {
         return ResponseEntity.ok(dto);
     }
 
-    @PostMapping("/orders")
-    public OrderDtoIn saveOrder(@RequestBody OrderDtoIn orderDtoIn) {
-        orderService.saveOrder(orderDtoIn);
-        return orderDtoIn;
-    }
 
-    @GetMapping("/find-orders/{id}")
-    public List<Object[]> findOrderDetailByOrderId(@PathVariable(name = "id", required = false) Long idOrder) {
-        return orderService.findOrderDetailByOrderId(idOrder);
-    }
 
 }

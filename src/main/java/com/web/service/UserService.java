@@ -11,10 +11,6 @@ public interface UserService {
 
     UserDtoIn saveUser(UserDtoIn user);
 
-    UserDtoIn updateUser(UserDtoIn userDtoIn);
-
-    UserDtoIn deleteUserById(Long idUser);
-
     List<Object[]> getUserDetailById(Long idUser);
 
 }

@@ -2,11 +2,9 @@ package com.web.controller;
 
 import java.util.*;
 
-import com.web.dto.ItemsDtoIn;
-import com.web.dto.OrderDtoIn;
+import com.web.dto.*;
 import com.web.service.ItemsService;
 import com.web.service.OrderDetailService;
-import com.web.dto.OrderDetailDtoIn;
 import com.web.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -26,46 +24,34 @@ public class OrderDetailController {
     @Autowired
     private OrderService orderService;
 
+
     @GetMapping("/detail")
     public List<OrderDetailDtoIn> getOderDetail() {
         return orderDetailService.getOderDetail();
     }
 
+    @PostMapping("add")
+    public ResponseEntity add(@RequestBody OrderRequest orderRequest) {
 
-    /**
-     * chuc nang dat don hang
-     * truyen vao :
-     * + PathVariable : idUser
-     * + RequestParam : idItems , quantity
-     **/
-    @GetMapping("/add/{idUser}")
-    public ResponseEntity<?> addOrder(@PathVariable("idUser") Long idUser,
-                                      @RequestParam Map<Long, Integer> itemQuantities) {
-        // tao moi order
+        // create order
         OrderDtoIn dto = new OrderDtoIn();
         dto.setIdOrder(orderService.maxIdOrder() + 1);
-        dto.setIdUser(idUser);
+        dto.setIdUser(orderRequest.getUser().getIdUser());
         dto.setStatus("chua thanh toan");
+        dto.setTotal((orderDetailService.getPrinceByIdOrder(dto.getIdOrder())));
         orderService.saveOrder(dto);
-        Set<Map.Entry<Long, Integer>> entries = itemQuantities.entrySet();
-        // tao moi order_detail theo idOrder o tren
-        for (Map.Entry<Long, Integer> entry : entries) {
-            String key = String.valueOf(entry.getKey());
-            String value = String.valueOf(entry.getValue());
-            orderDetailService.saveOrderDetail(Long.valueOf(key), dto.getIdOrder(), Integer.parseInt(value));
-            // xoa so luong ben bang items
-            ItemsDtoIn items = itemsService.getItems(Long.valueOf(key));
-            if (Objects.equals(items.getIdItems(), Long.valueOf(key))) {
-                items.setQuantity(items.getQuantity() - 1);
-                itemsService.saveItems(items);
-            }
-        }
-        // lay gia tri cua mat hang trong chi tiet hoa don cho hoa don
 
+        // tao orderDetail
+        for (ItemsDtoIn i : orderRequest.itemsList) {
+            orderDetailService.saveOrderDetail(i.getIdItems(), dto.getIdOrder(),i.getPrice(), i.getQuantity());
+            // update items on DB after change
+            ItemsDtoIn item = itemsService.getItems(i.getIdItems());
+            item.setQuantity(item.getQuantity() - i.getQuantity());
+            itemsService.saveItems(item);
+        }
         dto.setTotal((orderDetailService.getPrinceByIdOrder(dto.getIdOrder())));
         orderService.saveOrder(dto);
         return new ResponseEntity<>("Hoa don dat hang cua ban", HttpStatus.OK);
-
     }
 
 }

@@ -12,11 +12,6 @@ public interface OrderService {
 
     OrderDtoIn saveOrder(OrderDtoIn orderDtoIn);
 
-    OrderDtoIn deleteOrderById(Long idOrder);
-
-    List<Object[]> findOrderDetailByOrderId(Long idOrder);
-
-    OrderDtoIn getOrderByIdUser(Long idUser);
 
     Long maxIdOrder();
 

@@ -28,15 +28,11 @@ public class ItemsController {
         return ResponseEntity.ok(itemsDtoIn);
     }
 
+    // add items
     @PostMapping("/items")
     public ItemsDtoIn saveOrder(@RequestBody ItemsDtoIn itemsDtoIn) {
         itemsService.saveItems(itemsDtoIn);
         return itemsDtoIn;
     }
 
-    @PutMapping("/items")
-    public String update(@RequestBody ItemsDtoIn items){
-        itemsService.updateItemsById(items);
-        return "OKE";
-    }
 }

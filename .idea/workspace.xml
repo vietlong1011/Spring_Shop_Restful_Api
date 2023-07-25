@@ -5,20 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c56b6234-4ad1-4eba-bca6-1994ddb01254" name="Changes" comment="final">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/web/entity/AuditTable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/web/dto/OrderRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/web/config/AppConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/web/config/AppConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/web/controller/ItemsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/web/controller/ItemsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/web/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/web/controller/OrderController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/web/controller/OrderDetailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/web/controller/OrderDetailController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/web/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/web/controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/web/entity/Items.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/web/entity/Items.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/web/entity/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/web/entity/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/web/repository/OrderRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/web/repository/OrderRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/web/service/ItemsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/web/service/ItemsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/web/service/OrderDetailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/web/service/OrderDetailService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/web/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/web/service/OrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/web/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/web/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/web/service/impl/ItemsImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/web/service/impl/ItemsImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/web/service/impl/OrderDetailImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/web/service/impl/OrderDetailImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/web/service/impl/OrderImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/web/service/impl/OrderImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/web/service/items_v1/Audit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/web/service/items_v1/Audit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/web/config/AppConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/web/config/AppConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/web/service/impl/UserImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/web/service/impl/UserImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/web/service/items_v1/Audit.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/web/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/web/controller/UserController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/web/entity/Items.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/web/entity/Items.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/web/service/ItemsService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/web/service/ItemsService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/web/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/web/service/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/web/service/impl/ItemsImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/web/service/impl/ItemsImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/web/service/impl/UserImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/web/service/impl/UserImpl.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,8 +49,18 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
+  }
+}</component>
   <component name="GitToolBoxStore">
     <option name="projectConfigVersion" value="5" />
     <option name="recentBranches">
@@ -49,6 +70,10 @@
             <RecentBranchesForRepo>
               <option name="branches">
                 <list>
+                  <RecentBranch>
+                    <option name="branchName" value="dev" />
+                    <option name="lastUsedInstant" value="1689663016" />
+                  </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="main" />
                     <option name="lastUsedInstant" value="1684834561" />
@@ -60,6 +85,14 @@
           </list>
         </option>
       </RecentBranches>
+    </option>
+  </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="8e2153a9-1b23-48d5-ab59-ebc91cbd0a2a" />
+        <option name="url" value="https://github.com/vietlong1011/web_ban_hang_rest_Api.git" />
+      </UrlAndAccount>
     </option>
   </component>
   <component name="MarkdownSettingsMigration">
@@ -83,36 +116,36 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;JPA.DatabaseSchemaImportDialog&quot;: &quot;d2784a0b-7757-418e-9ea8-feafa468e7d1&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/laptopshop&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;cn.yiiguxing.plugin.translate&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;88677fd8f5ef789a40fd8de02ebe68be&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "JPA.DatabaseSchemaImportDialog": "d2784a0b-7757-418e-9ea8-feafa468e7d1",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/vscjava/oa2/Seting-Authen",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "cn.yiiguxing.plugin.translate",
+    "spring.configuration.checksum": "88677fd8f5ef789a40fd8de02ebe68be",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="ImportMappingsDialog.RecentPackages">
       <recent name="" />
@@ -186,7 +219,13 @@
       <workItem from="1687200309090" duration="3921000" />
       <workItem from="1687263298790" duration="5045000" />
       <workItem from="1687781579693" duration="2257000" />
-      <workItem from="1687805723807" duration="2834000" />
+      <workItem from="1687805723807" duration="4810000" />
+      <workItem from="1689325340464" duration="598000" />
+      <workItem from="1689662777995" duration="11341000" />
+      <workItem from="1689700020286" duration="8524000" />
+      <workItem from="1689924472069" duration="25000" />
+      <workItem from="1689928194952" duration="1291000" />
+      <workItem from="1690267368126" duration="62000" />
     </task>
     <task id="LOCAL-00004" summary="hoan thien bo khung web (tru controller cart)">
       <created>1684866976230</created>
@@ -223,7 +262,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686880271001</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="update &#10; * chuc nang dat don hang&#10;     * truyen vao :&#10;     * + PathVariable : idUser&#10;     * + RequestParam : idItems , quantity">
+      <created>1687830232709</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1687830232709</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -248,28 +294,11 @@
     <MESSAGE value="hoan thien xong cac chuc nang yeu cau (v1)" />
     <MESSAGE value="sua them session v1" />
     <MESSAGE value="update history table" />
+    <MESSAGE value="update &#10; * chuc nang dat don hang&#10;     * truyen vao :&#10;     * + PathVariable : idUser&#10;     * + RequestParam : idItems , quantity" />
     <MESSAGE value="final" />
     <option name="LAST_COMMIT_MESSAGE" value="final" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/com/web/service/impl/OrderDetailImpl.java</url>
-          <line>58</line>
-          <properties class="com.web.service.impl.OrderDetailImpl" method="saveOrderDetail">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/web/service/impl/OrderImpl.java</url>
-          <line>83</line>
-          <option name="timeStamp" value="21" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="com.web.entity.User" memberName="order" />

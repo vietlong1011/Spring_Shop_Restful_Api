@@ -11,7 +11,6 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Audited
 public class Items extends AuditTable{
 
     private static final long serialVersionUID = -1000119078147252957L;

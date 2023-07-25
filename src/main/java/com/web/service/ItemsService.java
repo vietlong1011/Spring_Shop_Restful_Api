@@ -7,11 +7,8 @@ import java.util.List;
 public interface ItemsService {
     ItemsDtoIn getItems(Long idItems);
 
-    List<ItemsDtoIn> getAllItems() ;
+    List<ItemsDtoIn> getAllItems();
 
     ItemsDtoIn saveItems(ItemsDtoIn itemsDtoIn);
 
-    ItemsDtoIn deleteItemsById(Long idItems);
-
-    ItemsDtoIn updateItemsById(ItemsDtoIn itemsDtoIn);
 }

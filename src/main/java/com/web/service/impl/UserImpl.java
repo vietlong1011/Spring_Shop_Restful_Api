@@ -50,23 +50,6 @@ public class UserImpl implements UserService {
         return userConvert.userToDto(user);
     }
 
-    @Override
-    public UserDtoIn updateUser(UserDtoIn userDtoIn) {
-        User user = new User();
-        user.setIdUser(userDtoIn.getIdUser());
-        user = userConvert.userToEntity(userDtoIn);
-        user = userRepository.save(user);
-        return userConvert.userToDto(user);
-    }
-
-    @Override
-    public UserDtoIn deleteUserById(Long idUser) {
-        User user = userRepository.findById(idUser).orElseThrow();
-        if (user.getIdUser().equals(idUser)) {
-            userRepository.deleteById(user.getIdUser());
-        }
-        return userConvert.userToDto(user);
-    }
 
     @Override
     public List<Object[]> getUserDetailById(Long idUser) {

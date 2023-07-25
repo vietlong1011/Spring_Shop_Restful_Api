@@ -32,7 +32,6 @@ public class OrderImpl implements OrderService {
         }
     }
 
-
     @Override
     public List<OrderDtoIn> getAllOrder() {
         List<Order> orderList = orderRepository.findAll();
@@ -54,30 +53,7 @@ public class OrderImpl implements OrderService {
         return orderConvert.orderToDto(order);
     }
 
-    @Override
-    public OrderDtoIn deleteOrderById(Long idOrder) {
-        Order order = orderRepository.findById(idOrder).orElseThrow();
-        if (order.getIdOrder().equals(idOrder)) {
-            orderRepository.delete(order);
-        }
-        return orderConvert.orderToDto(order);
-    }
 
-    @Override
-    public List<Object[]> findOrderDetailByOrderId(Long idOrder) {
-        return orderRepository.findOrderDetailByOrderId(idOrder);
-    }
-
-    @Override
-    public OrderDtoIn getOrderByIdUser(Long idUser) {
-        Optional<Order> optionalOrder = Optional.ofNullable(orderRepository.findOrderByIdUser(idUser));
-        if (optionalOrder.isPresent()) {
-            Order order = optionalOrder.get();
-            return orderConvert.orderToDto(order);
-        } else {
-            return null;
-        }
-    }
 
     @Override
     public Long maxIdOrder() {

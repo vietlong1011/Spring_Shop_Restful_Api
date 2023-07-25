@@ -51,36 +51,6 @@ public class ItemsImpl implements ItemsService {
         return itemsConvert.itemsToDto(items);
     }
 
-    @Override
-    public ItemsDtoIn deleteItemsById(Long idItems) {
-        Items items = itemsRepository.findById(idItems).orElseThrow();
-        if (items.getIdItems().equals(idItems)) {
-            itemsRepository.deleteById(items.getIdItems());
-        }
-        return itemsConvert.itemsToDto(items);
-    }
-
-    @Override
-    public ItemsDtoIn updateItemsById(ItemsDtoIn itemsDtoIn) {
-        Items items = new Items();
-        items.setIdItems(itemsDtoIn.getIdItems());
-        items = itemsConvert.itemsToEntity(itemsDtoIn);
-        items = itemsRepository.save(items);
-        /** Truy xuất lịch sử phiên bản của sản phẩm -> history table **/
-        Revisions<Integer, Items> revisions = itemsRepository.findRevisions(items.getIdItems());
-        List<Revision<Integer, Items>> revisionList = revisions.getContent();
-
-        for (Revision<Integer, Items> revision : revisionList) {
-            Optional<Integer> revisionNumber = revision.getRevisionNumber();
-            Items revisionEntity = revision.getEntity();
-            // Xử lý phiên bản dữ liệu
-            System.out.println("Revision Number: " + revisionNumber);
-            System.out.println("Product Name: " + revisionEntity.getNameItems());
-            System.out.println("Product Price: " + revisionEntity.getPrice());
-            System.out.println("------------------------");
-        }
-        return itemsConvert.itemsToDto(items);
-    }
 
 }
 
