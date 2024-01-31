@@ -30,7 +30,7 @@ public class OrderDetailController {
         return orderDetailService.getOderDetail();
     }
 
-    @PostMapping("add")
+    @PostMapping("/add")
     public ResponseEntity add(@RequestBody OrderRequest orderRequest) {
 
         // create order

@@ -1,0 +1,6 @@
+
+S	java:S106"9Replace this use of System.out or System.err by a logger.(´±×øÿÿÿÿ
+H
+java:S1135"2Complete the task associated to this TODO comment.(³›ö›
+|
+java:S1128"aRemove this unused import 'org.springframework.data.jpa.repository.config.EnableJpaRepositories'.(²œ˜üÿÿÿÿ
